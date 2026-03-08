@@ -1,112 +1,110 @@
 # E-commerce-sales-performance-analysis
 
 
-## Project overview
+## Project Overview
 
-This project analyzes sales performance to understand how revenue has been generated across different business dimension, including product categories, customer segmentation and sales volatility over time
-The goal is to produce deeper insight about sales being generated, then actions would be maximized in order to gain desired sales number.
+This project analyzes e-commerce sales performance to understand how revenue is generated across different business dimensions, including product categories, customer segments, and sales volatility over time.
 
-The object is to uncover key insights with sales trends, customer contribution and category performance.
-This insight would help to identify new opportunities to improve revenue performance and strengthen business decision making.
+The objective is to uncover key insights about sales trends, customer contribution, and category performance. These insights can help identify opportunities to improve revenue performance and support better data-driven business decisions.
 
 
-## Business questions
+## Business Questions
 
-- How has total revenue and order volume evolved over time (monthly)?
+- How have total revenue and order volume evolved over time (monthly)?
 - Which product categories contribute the most to total revenue?
 - Who are the top customers by total revenue contribution?
 - How concentrated is revenue among customers (e.g., top 10% vs the rest)?
 - Which sellers generate the highest revenue?
 - Which products drive the highest sales volume and revenue?
 - Are sales driven more by repeat customers or one-time customers?
-- Which categories or sellers show volatile or declining performance over time?
+- Which categories show the highest revenue volatility over time?
 
 
-## Dataset description
+## Dataset Description
+
+The analysis uses six tables representing different aspects of the e-commerce platform.
+
+### Orders
+- order_id
+- user_id
+- order_date
+- payment_method
+- total_amount
+
+### Order Items
+- order_item_id
+- order_id
+- product_id
+- quantity
+- item_price
+
+### Products
+- product_id
+- category
+- subcategory
+- price
+- seller_id
+
+### Reviews
+- review_id
+- order_item_id
+- rating
+- review_text
+- review_date
+
+### Sellers
+- seller_id
+- seller_name
+- country
+- rating
+
+### Users
+- user_id
+- join_date
+- location
+- age
+- gender
 
 
-In this analysis utilize 6 tables
 
-1. Orders
-Contain of this following columns :
-  - Order_id
-  - User_id
-  - Order_date
-  - Payment_method
-  - total_amount
+## Analytical Approach
 
-2. Order_items
-Contain of this following columns :
-  - Order_item_id
-  - Order_id
-  - Product_id
-  - Quantity
-  - item_price
+### Data Preparation
+Tables were joined depending on the analytical question being addressed. Different business questions required combining different datasets.
 
-3. Products
-Contain of this following columns :
-  - Product_id
-  - Category
-  - Subcategory
-  - Price
-  - Seller_id
+### SQL Analysis
+The analysis was performed using SQL techniques including:
 
-4. Reviews
-Contain of this following columns :
-  - Review_id
-  - Order_item_id
-  - Rating
-  - Review_text
-  - Review_date
+- Aggregations (SUM, COUNT)
+- Window functions
+- CASE statements
+- Grouping with GROUP BY
+- Growth rate calculation
+- Revenue volatility measurement using STDDEV
+
+### Visualization
+The results were visualized using Tableau to highlight:
+
+- Monthly revenue and order volume trends
+- Revenue contribution distribution
+- Category performance
+- Revenue volatility and risk patterns
 
 
-5. Sellers
-Contain of this following columns :
-  - Seller_id
-  - Seller_name
-  - Country
-  - Rating
-
-6. Users
-Contain of this following columns :
-  - User_id
-  - Join_date
-  - Location
-  - Age
-  - Gender
-
-
-## Analytical approach 
-
-Data preparation
-  - Joins table depends on the questions, different questions need different kinds of tables.
-    
-SQL analysis
-  - Aggregation (SUM,COUNT)
-  - window functions
-  - Case statement
-  - Grouping with GROUP BY
-  - growth rate calculation
-  - volatility measurement (STDDEV)
-
-
-Visualization
-  -The results were visualized by using Tableau.  Charts were highlighting monthly revenue / order value,revenue distribution, category segmentation and volatility / risk.
-
-
-## Key insights
+## Key Insights
 
 - Revenue shows an overall upward trend but drops in the final month due to incomplete data.
-- The top 10% of customers contribute ~27% of total revenue.
-- Toys category shows the highest revenue volatility
-- October 2023 shows the  highest growth rate and February 2024 shows the lowest growth rate (most likely due to the incomplete data not because the business impact)
-- Toys category generated the highest revenue
+- The top 10% of customers generate approximately **27% of total revenue**.
+- The **Toys category** exhibits the highest revenue volatility.
+- **October 2023** shows the strongest revenue growth.
+- **February 2024** shows the lowest growth rate, likely due to incomplete data rather than a real business decline.
+- The **Toys category generates the highest total revenue** among all categories.
 
 
-## Tools used
+## Tools Used
 
-- SQL (MySQL)
-- Tableau
+- **SQL (MySQL)** – data analysis and querying  
+- **Tableau** – data visualization and dashboard creation
 
 
 
